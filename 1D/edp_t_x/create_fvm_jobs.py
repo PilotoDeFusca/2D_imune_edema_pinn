@@ -1,16 +1,8 @@
 import argparse
 import os
+from parametros_maquina import *
 
 
-v_gpu = [
-    "MIG-a444fcc0-f725-530b-9ffb-97805cefb734",
-    "MIG-10685134-19fb-5361-83da-7bdc9b8242ba",
-    "MIG-a5ff4856-76ba-5d4a-bc36-d6c908a95b14",
-    "MIG-d65b56b1-2519-5354-96ae-aec5f0e41128",
-    "MIG-275c5d7e-981d-5f7a-b45b-0659ba9ad13a",
-    "MIG-3aad3b21-c6f1-5b32-9d6b-1341d2b38d11",
-    "MIG-f946a009-bfbb-5335-89ba-7f3ac431bf10",
-]
 
 parser = argparse.ArgumentParser(description="", add_help=False)
 parser = argparse.ArgumentParser()
@@ -79,11 +71,11 @@ def write_setup():
         "jobs/fvm_comp.job",
     )
     add_line(
-        "# Run time (hh:mm:ss) - 10:00 hr",
+        f"# Run time (hh:mm:ss) - {tempo_execução}",
         "jobs/fvm_comp.job",
     )
     add_line(
-        "#PBS -l walltime=10:00:00",
+        f"#PBS -l walltime={tempo_execução}",
         "jobs/fvm_comp.job",
     )
     add_line(
@@ -91,7 +83,7 @@ def write_setup():
         "jobs/fvm_comp.job",
     )
     add_line(
-        "#PBS -l nodes=compute-1-1:ppn=128",
+        f"#PBS -l nodes=compute-{maquina}:ppn={numero_nucleos}",
         "jobs/fvm_comp.job",
     )
     add_line(
@@ -111,7 +103,7 @@ def write_setup():
         "jobs/fvm_comp.job",
     )
     add_line(
-        "export CUDA_VISIBLE_DEVICES=GPU-fd7e14c3-91ce-6c4b-e736-393c0d0537ef",
+        f"export CUDA_VISIBLE_DEVICES={gpu_id}",
         "jobs/fvm_comp.job",
     )
 
@@ -136,7 +128,7 @@ if __name__ == "__main__":
                 add_line(
                     "export CUDA_VISIBLE_DEVICES="
                     + v_gpu[i % len(v_gpu)]
-                    + " && ~/.conda/envs/torch-numba-11/bin/python3 fvm_comparison.py;",
+                    + " && ~/../thiago.esterci/.conda/envs/torch-numba-11/bin/python3 fvm_comparison.py;",
                     "jobs/fvm_comp.job",
                 )
 
@@ -144,7 +136,7 @@ if __name__ == "__main__":
                 add_line(
                     "export CUDA_VISIBLE_DEVICES="
                     + v_gpu[i % len(v_gpu)]
-                    + " && ~/.conda/envs/torch-numba-11/bin/python3 fvm_comparison.py & ",
+                    + " && ~/../thiago.esterci/.conda/envs/torch-numba-11/bin/python3 fvm_comparison.py & ",
                     "jobs/fvm_comp.job",
                 )
 
@@ -152,7 +144,7 @@ if __name__ == "__main__":
 
         for i in range(n_iterations):
             add_line(
-                "~/.conda/envs/torch-numba-11/bin/python3 fvm_comparison.py;",
+                "~/../thiago.esterci/.conda/envs/torch-numba-11/bin/python3 fvm_comparison.py;",
                 "jobs/fvm_comp.job",
             )
 
