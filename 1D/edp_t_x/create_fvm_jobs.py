@@ -128,7 +128,7 @@ if __name__ == "__main__":
                 add_line(
                     "export CUDA_VISIBLE_DEVICES="
                     + v_gpu[i % len(v_gpu)]
-                    + " && ~/../thiago.esterci/.conda/envs/torch-numba-11/bin/python3 fvm_comparison.py;",
+                    + " && /home/thiago.esterci/.conda/envs/torch-numba-11/bin/python3 fvm_comparison.py;",
                     "jobs/fvm_comp.job",
                 )
 
@@ -136,7 +136,7 @@ if __name__ == "__main__":
                 add_line(
                     "export CUDA_VISIBLE_DEVICES="
                     + v_gpu[i % len(v_gpu)]
-                    + " && ~/../thiago.esterci/.conda/envs/torch-numba-11/bin/python3 fvm_comparison.py & ",
+                    + " && /home/thiago.esterci/.conda/envs/torch-numba-11/bin/python3 fvm_comparison.py & ",
                     "jobs/fvm_comp.job",
                 )
 
@@ -144,7 +144,7 @@ if __name__ == "__main__":
 
         for i in range(n_iterations):
             add_line(
-                "~/../thiago.esterci/.conda/envs/torch-numba-11/bin/python3 fvm_comparison.py;",
+                "/home/thiago.esterci/.conda/envs/torch-numba-11/bin/python3 fvm_comparison.py;",
                 "jobs/fvm_comp.job",
             )
 
