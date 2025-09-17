@@ -63,11 +63,11 @@ def write_setup():
         "jobs/fvm_comp.job",
     )
     add_line(
-        "#PBS -e error_files/fvm_comp.e",
+        "#PBS -e /home/ph4581/scripts_thiago/2D_imune_edema_pinn/1D/edp_t_x/error_files/fvm_comp.e",
         "jobs/fvm_comp.job",
     )
     add_line(
-        "#PBS -o output_files/fvm_comp.o",
+        "#PBS -o /home/ph4581/scripts_thiago/2D_imune_edema_pinn/1D/edp_t_x/output_files/fvm_comp.o",
         "jobs/fvm_comp.job",
     )
     add_line(
@@ -128,7 +128,7 @@ if __name__ == "__main__":
                 add_line(
                     "export CUDA_VISIBLE_DEVICES="
                     + v_gpu[i % len(v_gpu)]
-                    + " && /home/thiago.esterci/.conda/envs/torch-numba-11/bin/python3 fvm_comparison.py;",
+                    + " && /home/thiago.esterci/.conda/envs/torch-numba-11/bin/python3 /home/ph4581/scripts_thiago/2D_imune_edema_pinn/1D/edp_t_x/fvm_comparison.py;",
                     "jobs/fvm_comp.job",
                 )
 
@@ -136,7 +136,7 @@ if __name__ == "__main__":
                 add_line(
                     "export CUDA_VISIBLE_DEVICES="
                     + v_gpu[i % len(v_gpu)]
-                    + " && /home/thiago.esterci/.conda/envs/torch-numba-11/bin/python3 fvm_comparison.py & ",
+                    + " && /home/thiago.esterci/.conda/envs/torch-numba-11/bin/python3 /home/ph4581/scripts_thiago/2D_imune_edema_pinn/1D/edp_t_x/fvm_comparison.py & ",
                     "jobs/fvm_comp.job",
                 )
 
@@ -144,7 +144,7 @@ if __name__ == "__main__":
 
         for i in range(n_iterations):
             add_line(
-                "/home/thiago.esterci/.conda/envs/torch-numba-11/bin/python3 fvm_comparison.py;",
+                "/home/thiago.esterci/.conda/envs/torch-numba-11/bin/python3 /home/ph4581/scripts_thiago/2D_imune_edema_pinn/1D/edp_t_x/fvm_comparison.py;",
                 "jobs/fvm_comp.job",
             )
 

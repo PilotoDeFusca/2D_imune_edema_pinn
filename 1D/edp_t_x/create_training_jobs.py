@@ -6,14 +6,9 @@ from itertools import product
 
 
 v_gpu = [
-    "MIG-5a2715b5-94cb-52c7-9277-ab14d8ff7a83",
-    "MIG-a546e4e2-39c8-5533-b038-1003be6edb85",
-    "MIG-de784377-11af-5b3f-bdc3-471bf95fa524",
-    "MIG-ee23fa18-b1b2-51c3-8dc2-2dcfef8ff850",
-    "MIG-5a5a74b5-4644-59ac-b603-52015ee50b13",
-    "MIG-b4d02ac1-b388-5287-8ce4-bceddc3d2cbb",
-    "MIG-de11c256-929e-5df4-80bd-ea658c06177a",
-]
+   "MIG-8c36d9dd-4315-583f-c95d-c0e7575f3433",
+   "MIG-1234567890"
+    ]
 
 parser = argparse.ArgumentParser(description="", add_help=False)
 parser = argparse.ArgumentParser()
@@ -202,7 +197,7 @@ def simple_loop(
                             write_setup(count, chunck_size)
 
                         add_line(
-                            "time ~/.conda/envs/torch-numba-11/bin/python3 pinn_training.py "
+                            "time /home/thiago.esterci/.conda/envs/torch-numba-11/bin/python3 pinn_training.py "
                             + " -a "
                             + str(arch_str)
                             + " -b1 "
@@ -264,7 +259,7 @@ def combination_loop(
                         write_setup(count, chunck_size)
 
                     add_line(
-                        "time ~../thiago.esterci/.conda/envs/torch-numba-11/bin/python3 pinn_training.py "
+                        "time /home/thiago.esterci/.conda/envs/torch-numba-11/bin/python3 pinn_training.py "
                         + " -a "
                         + str(arch_str)
                         + " -b1 "
@@ -301,9 +296,9 @@ if __name__ == "__main__":
 
     sim_list = glob.glob("nn_parameters/*")
 
-    n_hd_layers = [6, 7]
+    n_hd_layers = [6]
 
-    n_neurons = [2**3, 2**4, 2**5, 2**6]
+    n_neurons = [2**6]
 
     betas1 = np.linspace(0.6, 0.9, num=5, endpoint=True, dtype=np.float32)
 

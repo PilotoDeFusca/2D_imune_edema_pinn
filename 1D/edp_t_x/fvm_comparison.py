@@ -10,11 +10,11 @@ from numba import cuda
 from fvm_animation import animate_1D_evolution
 
 # Load constant properties from JSON file
-with open("control_dicts/constant_properties.json", "r") as openfile:
+with open("/home/ph4581/scripts_thiago/2D_imune_edema_pinn/1D/edp_t_x/control_dicts/constant_properties.json", "r") as openfile:
     constant_properties = json.load(openfile)
 
 # Load mesh properties from JSON file
-with open("control_dicts/mesh_properties.json", "r") as openfile:
+with open("/home/ph4581/scripts_thiago/2D_imune_edema_pinn/1D/edp_t_x/control_dicts/mesh_properties.json", "r") as openfile:
     mesh_properties = json.load(openfile)
 
 
@@ -54,6 +54,8 @@ size_x, size_y, size_t, leu_source_points, struct_name = init_mesh(
     k,
     center,
     radius,
+    source_type="random",
+    create_source=True,
     percent=0.1,
 )
 
