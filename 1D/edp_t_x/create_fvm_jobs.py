@@ -1,6 +1,6 @@
 import argparse
 import os
-
+import parametros_maquina
 
 v_gpu = [
     "MIG-a444fcc0-f725-530b-9ffb-97805cefb734",
@@ -79,11 +79,11 @@ def write_setup():
         "jobs/fvm_comp.job",
     )
     add_line(
-        "# Run time (hh:mm:ss) - 10:00 hr",
+        "# Run time (hh:mm:ss) - 1 hr",
         "jobs/fvm_comp.job",
     )
     add_line(
-        "#PBS -l walltime=10:00:00",
+        "#PBS -l walltime=00:01:00",
         "jobs/fvm_comp.job",
     )
     add_line(
@@ -111,7 +111,7 @@ def write_setup():
         "jobs/fvm_comp.job",
     )
     add_line(
-        "export CUDA_VISIBLE_DEVICES=GPU-fd7e14c3-91ce-6c4b-e736-393c0d0537ef",
+        "export CUDA_VISIBLE_DEVICES={}",
         "jobs/fvm_comp.job",
     )
 

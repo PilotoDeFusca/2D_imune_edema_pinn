@@ -302,9 +302,9 @@ if __name__ == "__main__":
 
     betas1 =[0.6,0.9]
 
-    betas2 =[0.99,0.99]
+    betas2 =[0.99,0.9999]
 
-    if mode == "simple":
+    if mode == "gpu":
         simple_loop(
             n_hd_layers,
             n_neurons,
@@ -313,8 +313,8 @@ if __name__ == "__main__":
             chunck_size,
         )
 
-    elif mode == "combination":
-        combination_loop(
+    elif mode == "mig":
+        simple_loop(
             n_hd_layers,
             n_neurons,
             betas1,
