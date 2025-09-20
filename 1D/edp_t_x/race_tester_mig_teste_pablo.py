@@ -21,7 +21,7 @@ def check(): # Serve pra ver se o job ainda ta rodando
 
 for beta1 in betas1:
     for beta2 in betas2:
-        for i in range(iter):
+        for i in range(1,iter+1):
 
 # cria as pastas caso não existam. Essa sequencia ficou meio ruim, mas da pra usar sem problema
             try:
@@ -52,13 +52,13 @@ cd $PBS_O_WORKDIR
 cat $PBS_NODEFILE
 
 # Launch MPI-based executable
-time CUDA_VISIBLE_DEVICES={devices[0]}\
+time CUDA_VISIBLE_DEVICES={devices[0]} \
 /home/thiago.esterci/.conda/envs/torch-numba-11/bin/python3 pinn_training.py \
 -a __64__64__64__64__64__64 \
 -b1 {beta1} \
 -b2 {beta2} >>\
 /home/ph4581/scripts_thiago/2D_imune_edema_pinn/1D/edp_t_x/saidas/\
-compute-{maquina}/{tamanho_mig}/{beta1}_{beta2}/{iter}
+compute-{maquina}/{tamanho_mig}/{beta1}_{beta2}/{i}
 
 '''     
             with open('/home/ph4581/scripts_thiago/2D_imune_edema_pinn/1D/edp_t_x/jobs/roteiro', 'w') as roteiro_file: # escreve o roteiro
