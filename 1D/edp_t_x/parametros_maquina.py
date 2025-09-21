@@ -10,16 +10,18 @@ numero_nucleos_gpu="128"
 
 numero_nucleos_mig="128"
 
-tempo_execução_mig="04:00:00"
-tempo_execução_gpu="04:00:00"
+tempo_execução_mig="01:30:00"
+tempo_execução_gpu="01:30:00"
 
 n_hd_layers = [6]
+
+n_neurons = [2**6]
 
 betas1 =[0.6,0.9]
 
 betas2 =[0.99,0.9999]
 
-iter=2
+iter=3
 
 # id dos migs
 devices = [ 

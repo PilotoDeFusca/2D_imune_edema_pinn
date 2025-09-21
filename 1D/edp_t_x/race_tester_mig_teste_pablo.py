@@ -37,12 +37,12 @@ for beta1 in betas1:
 #PBS -N race_tester_ph
 
 # Name of stdout output file
-#PBS -o /home/ph4581/scripts_thiago/2D_imune_edema_pinn/1D/edp_t_x/saidas/saidas_out
-#PBS -e /home/ph4581/scripts_thiago/2D_imune_edema_pinn/1D/edp_t_x/saidas/saidas_err
+#PBS -o /home/ph4581/scripts_thiago/2D_imune_edema_pinn/1D/edp_t_x/saidas/compute-{maquina}/{tamanho_mig}/{beta1}_{beta2}/saida{i}.o
+#PBS -e /home/ph4581/scripts_thiago/2D_imune_edema_pinn/1D/edp_t_x/saidas/compute-{maquina}/{tamanho_mig}/{beta1}_{beta2}/saida{i}.e
 # Total number of nodes and MPI tasks/node requested
 #PBS -l nodes=compute-{maquina}:ppn={numero_nucleos_mig}
 
-# Run time (hh:mm:ss) - 04 hs
+# Run time (hh:mm:ss) - 1h30min
 #PBS -l walltime={tempo_execução_mig}
 #----------------------------------------------------------
 
@@ -61,11 +61,11 @@ time CUDA_VISIBLE_DEVICES={devices[0]} \
 compute-{maquina}/{tamanho_mig}/{beta1}_{beta2}/{i}
 
 '''     
-            with open('/home/ph4581/scripts_thiago/2D_imune_edema_pinn/1D/edp_t_x/jobs/roteiro', 'w') as roteiro_file: # escreve o roteiro
+            with open('/home/ph4581/scripts_thiago/2D_imune_edema_pinn/1D/edp_t_x/jobs/roteiro.job', 'w') as roteiro_file: # escreve o roteiro
                     roteiro_file.write(roteiro)
 
                 # envia o job no roteiro
-            os.system('qsub /home/ph4581/scripts_thiago/2D_imune_edema_pinn/1D/edp_t_x/jobs/roteiro')
+            os.system('qsub /home/ph4581/scripts_thiago/2D_imune_edema_pinn/1D/edp_t_x/jobs/roteiro.job')
 
 
                 # confere se o job ainda ta rodando
