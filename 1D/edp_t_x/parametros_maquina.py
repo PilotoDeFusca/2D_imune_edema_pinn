@@ -1,27 +1,22 @@
-gpu_id="GPU-49723f5b-3680-6d21-0357-4b7bf88ad0e7"
-
 v_gpu = [
     "MIG-7fce5663-3a1e-514f-a938-af77e5766e80"
     ]
 
 #ver se mig esta funcionando
 
-numero_nucleos_gpu="128"
+numero_nucleos="128"
 
-numero_nucleos_mig="128"
-
-tempo_execução_mig="01:30:00"
-tempo_execução_gpu="01:30:00"
+tempo_execução="02:00:00"
 
 n_hd_layers = [6]
 
 n_neurons = [2**6]
 
-betas1 =[0.6,0.9]
+beta1 =0.6
 
-betas2 =[0.99,0.9999]
+beta2 =0.99
 
-iter=3
+iter=10
 
 # id dos migs
 devices = [ 
