@@ -59,4 +59,4 @@ pid{index}=$!
         roteiro_file.write(add_wait)
 
     # envia o job no roteiro
-    #os.system(f'qsub /home/ph4581/scripts_thiago/2D_imune_edema_pinn/1D/edp_t_x/jobs/roteiro{i}.job')
+    os.system(f'qsub /home/ph4581/scripts_thiago/2D_imune_edema_pinn/1D/edp_t_x/jobs/roteiro{i}.job')
