@@ -1,0 +1,10 @@
+sh: /home/ph4581/scripts_thiago/2D_imune_edema_pinn/1D/edp_t_x/jobs/roteiro_queue: No such file or directory
+sh: /home/ph4581/scripts_thiago/2D_imune_edema_pinn/1D/edp_t_x/jobs/roteiro_queue: No such file or directory
+
+real	0m0.101s
+user	0m0.060s
+sys	0m0.018s
+
+real	0m0.101s
+user	0m0.066s
+sys	0m0.015s

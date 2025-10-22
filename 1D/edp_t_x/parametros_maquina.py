@@ -4,9 +4,9 @@ v_gpu = [
 
 #ver se mig esta funcionando
 
-numero_nucleos="128"
+numero_nucleos="16"
 
-tempo_execução="200:00:00"
+tempo_execução="10:00:00"
 
 n_hd_layers = [6]
 
@@ -31,5 +31,5 @@ gpu_id = "GPU-fd7e14c3-91ce-6c4b-e736-393c0d0537ef" # ID da gpu completa
 maquina = '1-0' # maquina que vai executar os jobs, pode ser 1-0 ou 1-1
 tamanho_mig = '3g-40gb' # perfil do mig
 
-numero_testes_vazao=84
+numero_testes_vazao=4
 exec_per_mig=numero_testes_vazao//len(devices)
