@@ -1,0 +1,7 @@
+
+#!/bin/bash
+time CUDA_VISIBLE_DEVICES=GPU-8c36d9dd-4315-583f-c95d-c0e7575f3433 ./mig >> /home/pabloh/2025/saidas/compute-1-0/gpu/sp/gpu-sp-GPU-8c36d9dd-4315-583f-c95d-c0e7575f3433-100 &
+pid1=$!
+
+wait $pid1
+        
